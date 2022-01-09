@@ -39,6 +39,11 @@ namespace AddressBook_System
             Console.WriteLine("\n {0}'s contact succesfully added", person.firstName);
         }
 
+        internal static void SearchDuplicate()
+        {
+            throw new NotImplementedException();
+        }
+
         public static void Details()
         {
             if (contacts.Count == 0)
@@ -60,6 +65,23 @@ namespace AddressBook_System
                     Console.WriteLine("Phone number = " + Detailing.PhoneNunmber);
                 }
             }
+        }
+        public static int SearchDuplicate(List<createcontact> contacts,createcontact contactBook)
+        {
+            foreach (var Details in contacts)
+            {
+                var person = contacts.Find(p => p.firstName.Equals(contactBook.firstName));
+                if (person != null)
+                {
+                    Console.WriteLine("Already this contact exist with same First name : " + person.firstName);
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            return 0;
         }
     }
 }

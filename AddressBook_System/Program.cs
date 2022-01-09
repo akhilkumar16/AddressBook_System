@@ -5,7 +5,7 @@ namespace AddressBook_System
     class Program
     {
         /// <summary>
-        /// Refactor to add multiple Address Book to the System.
+        /// no Duplicate Entry
         /// </summary>
         /// <param name="args"></param>
         static void Main(string[] args)
@@ -20,10 +20,9 @@ namespace AddressBook_System
                 Console.Write("\n Enter name of Address Book : ");
                 string book = Console.ReadLine();
                 Console.WriteLine("\n Select the below option");
-                Console.WriteLine("1.Add Contact Details \n2.View Contant Details \n3.Edit Contant Details \n4.Delete Contact Details");
+                Console.WriteLine("\n1.Add Contact Details \n2.View Contant Details \n3.Search Duplicate ");
                 Console.Write("Enter Your Choice : ");
                 int num = Convert.ToInt32(Console.ReadLine());
-
                 while (key != 0)
                 {
                     switch (num)
@@ -34,6 +33,9 @@ namespace AddressBook_System
                             break;
                         case 2:
                             AddressBook.Details();
+                            break;
+                        case 3:
+                            AddressBook.SearchDuplicate();
                             break;
                         default:
                             Console.Write("Choice correct option : ");
