@@ -13,6 +13,8 @@ namespace AddressBook_System
             AddressBook.Display();
             AddressBook.Delete();
             AddressBook.Display();
+            AddressBook.AddMultile();
+            AddressBook.Display();
         }
     }
 }

@@ -174,5 +174,37 @@ namespace AddressBook_System
                 Console.WriteLine("contact of the person {0} does not exist", deleteKey);
             }
         }
+        public static void AddMultile()
+        {
+            Console.Write("How many contacts do you want to add ? : ");
+            int contactsNum = Convert.ToInt32(Console.ReadLine());
+            while (contactsNum > 0)
+            {
+                createcontact person = new createcontact();
+
+
+                Console.Write(" Enter your First name : ");
+                person.firstName = Console.ReadLine();
+                Console.Write(" Enter your Last name : ");
+                person.lastName = Console.ReadLine();
+                Console.Write(" Enter your Address : ");
+                person.address = Console.ReadLine();
+                Console.Write(" Enter your City : ");
+                person.city = Console.ReadLine();
+                Console.Write(" Enter your State : ");
+                person.state = Console.ReadLine();
+                Console.Write(" Enter your Zip Code : ");
+                person.ZipCode = Console.ReadLine();
+                Console.Write(" Enter your Phone Number : ");
+                person.PhoneNunmber = Console.ReadLine();
+                Console.Write(" Enter your Email-ID : ");
+                person.eMail = Console.ReadLine();
+
+                addressBook.Add(person);
+                Console.WriteLine("\n {0}'s contact succesfully added", person.firstName);
+                contactsNum--;
+            }
+        }
     }
 }
+
