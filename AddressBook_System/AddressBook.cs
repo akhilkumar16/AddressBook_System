@@ -70,5 +70,75 @@ namespace AddressBook_System
                 Console.WriteLine("Your address book is empty");
             }
         }
+        public static void Edit()
+        {
+            Console.Write("\n Enter the first name of the person whom you want to edit the details : ");
+            string editKey = Console.ReadLine();
+            if (addressBook.Count > 0)
+            {
+                foreach (createcontact persons in addressBook)
+                {
+                    if (editKey.ToLower() == persons.firstName.ToLower())
+                    {
+                        Console.WriteLine("\n Enter the key number for editing the details." +
+                            "\n1.First Name " +
+                            "\n2.Last Name " +
+                            "\n3.Address " +
+                            "\n4.City " +
+                            "\n5.State " +
+                            "\n6.Zipcode " +
+                            "\n7.Phone Number " +
+                            "\n8.Email ID");
+                        Console.Write(" Enter your option : ");
+                        int key = Convert.ToInt32(Console.ReadLine());
+                        switch (key)
+                        {
+                            case 1:
+                                Console.Write("Enter the new First Name : ");
+                                persons.firstName = Console.ReadLine();
+                                break;
+                            case 2:
+                                Console.WriteLine("Enter the new Last name");
+                                persons.lastName = Console.ReadLine();
+                                break;
+                            case 3:
+                                Console.Write(" Enter the New Address : ");
+                                persons.address = Console.ReadLine();
+                                break;
+                            case 4:
+                                Console.Write(" Enter the New City : ");
+                                persons.city = Console.ReadLine();
+                                break;
+                            case 5:
+                                Console.Write(" Enter the New State : ");
+                                persons.state = Console.ReadLine();
+                                break;
+                            case 6:
+                                Console.Write("Enter the New Zip Code : ");
+                                persons.ZipCode = Console.ReadLine();
+                                break;
+                            case 7:
+                                Console.Write(" Enter the New Phone Number : ");
+                                persons.PhoneNunmber = Console.ReadLine();
+                                break;
+                            case 8:
+                                Console.Write(" Enter the New EMail-ID : ");
+                                persons.eMail = Console.ReadLine();
+                                break;
+                            default:
+                                Console.WriteLine(" Please enter a valid input");
+                                Edit();
+                                break;
+                        }
+                        Console.WriteLine(" {0}'s contact has been successfully added", editKey);
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine(" Your address book is empty");
+            }
+        }
     }
 }
