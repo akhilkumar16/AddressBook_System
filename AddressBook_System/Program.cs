@@ -5,7 +5,7 @@ namespace AddressBook_System
     class Program
     {
         /// <summary>
-        /// no Duplicate Entry
+        /// Ability to search Person in a City
         /// </summary>
         /// <param name="args"></param>
         static void Main(string[] args)
@@ -20,9 +20,12 @@ namespace AddressBook_System
                 Console.Write("\n Enter name of Address Book : ");
                 string book = Console.ReadLine();
                 Console.WriteLine("\n Select the below option");
-                Console.WriteLine("\n1.Add Contact Details \n2.View Contant Details \n3.Search Duplicate ");
+                Console.WriteLine("1.Add Contact Details \n2.View Contant Details \n3.Find Person in City  \n4.Find Person in State");
                 Console.Write("Enter Your Choice : ");
                 int num = Convert.ToInt32(Console.ReadLine());
+
+
+
                 while (key != 0)
                 {
                     switch (num)
@@ -35,7 +38,10 @@ namespace AddressBook_System
                             AddressBook.Details();
                             break;
                         case 3:
-                            AddressBook.SearchDuplicate();
+                            AddressBook.SearchCity();
+                            break;
+                        case 4:
+                            AddressBook.SearchState();
                             break;
                         default:
                             Console.Write("Choice correct option : ");
