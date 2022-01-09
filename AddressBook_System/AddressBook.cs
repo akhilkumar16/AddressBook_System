@@ -4,11 +4,14 @@ using System.Text;
 
 namespace AddressBook_System
 {
+    /// <summary>
+    /// Ability to search Person in a City
+    /// </summary>
     class AddressBook
     {
-        public static List<createcontact> contacts = new List<createcontact>();
+        private static List<createcontact> contacts = new List<createcontact>();
 
-        public static Dictionary<string, List<createcontact>> addressBook = new Dictionary<string, List<createcontact>>();
+        private static Dictionary<string, List<createcontact>> addressBook = new Dictionary<string, List<createcontact>>();
 
         public static void AddTo(string name)
         {
@@ -38,12 +41,6 @@ namespace AddressBook_System
             contacts.Add(person);
             Console.WriteLine("\n {0}'s contact succesfully added", person.firstName);
         }
-
-        internal static void SearchDuplicate()
-        {
-            throw new NotImplementedException();
-        }
-
         public static void Details()
         {
             if (contacts.Count == 0)
@@ -66,22 +63,41 @@ namespace AddressBook_System
                 }
             }
         }
-        public static int SearchDuplicate(List<createcontact> contacts,createcontact contactBook)
+        public static void SearchCity()
         {
+            Console.WriteLine("Please Enter Name of city");
+            string city = Console.ReadLine();
             foreach (var Details in contacts)
             {
-                var person = contacts.Find(p => p.firstName.Equals(contactBook.firstName));
+                var person = contacts.Find(p => p.city.Equals(city));
                 if (person != null)
                 {
-                    Console.WriteLine("Already this contact exist with same First name : " + person.firstName);
-                    return 1;
+                    Console.WriteLine("{0} person in the {1}", Details.firstName, city);
                 }
                 else
                 {
-                    return 0;
+
                 }
             }
-            return 0;
+        }
+        // method searching person using state name
+        public static void SearchState()
+        {
+            Console.WriteLine("Please Enter Name of State");
+            string state = Console.ReadLine();
+            foreach (var Details in contacts)
+            {
+                var person = contacts.FindAll(p => p.state.Equals(state));
+                if (person != null)
+                {
+                    Console.WriteLine("{0} person in the {1}", Details.firstName, state);
+                }
+                else
+                {
+
+                }
+            }
+
         }
     }
 }
